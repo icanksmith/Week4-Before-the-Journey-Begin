@@ -7,10 +7,30 @@ Dilarang mengubah isi dalam function mostFrequentLargestNumbers!
 */
 function sorting(arrNumber) {
   // code di sini
+  for (let i = 0; i < arrNumber.length - 1; i++){
+    for (let j = 0; j < arrNumber.length - 1 - i; j++){
+      if (arrNumber[j] > arrNumber[j + 1]){
+        let tempNumber = arrNumber[j];
+        arrNumber[j] = arrNumber[j+1];
+        arrNumber[j+1] = tempNumber;
+      }
+    }
+  }
+  return arrNumber;
 }
 
 function getTotal(arrNumber) {
   // code di sini
+  if (arrNumber.length === 0) return '';
+
+  let highestNum = arrNumber.slice(-1)[0];
+  let counter = 0;
+  for (let i = 0; i < arrNumber.length; i++){
+    if (arrNumber[i] === highestNum){
+      counter++;
+    }
+  }
+  return `angka paling besar adalah ${highestNum} dan jumlah kemunculan sebanyak ${counter} kali`
 }
 
 function mostFrequentLargestNumbers(arrNumber) {
